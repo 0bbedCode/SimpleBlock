@@ -30,6 +30,16 @@
             this.hostList = new System.Windows.Forms.ListView();
             this.AddressCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.hostListsStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearHostsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backupHostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.defaultToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.restoreFromCopyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.defaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PauseResumeButton = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.mainTabControl = new System.Windows.Forms.TabControl();
@@ -43,17 +53,33 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.logStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkUpdatesButton = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.repoList = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.repoOpsStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.repoCheckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkForUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopUpdateCheckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.startToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.allowedList = new System.Windows.Forms.ListView();
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.allowedStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Convert12720 = new System.Windows.Forms.Button();
@@ -69,32 +95,6 @@
             this.aboudLabel = new System.Windows.Forms.Label();
             this.repoCheckTip = new System.Windows.Forms.ToolTip(this.components);
             this.deepRepoTip = new System.Windows.Forms.ToolTip(this.components);
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.removeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.repoCheckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkForUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stopUpdateCheckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.startToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.stopToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearHostsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.backupHostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.customToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.defaultToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.restoreFromCopyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.customToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.defaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.removeToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.hostListsStrip.SuspendLayout();
             this.mainTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -159,6 +159,88 @@
             this.restoreFromCopyToolStripMenuItem});
             this.hostListsStrip.Name = "hostListsStrip";
             this.hostListsStrip.Size = new System.Drawing.Size(176, 136);
+            // 
+            // addToolStripMenuItem
+            // 
+            this.addToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Add;
+            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.addToolStripMenuItem.Text = "Add";
+            // 
+            // removeToolStripMenuItem
+            // 
+            this.removeToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Minus;
+            this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.removeToolStripMenuItem.Text = "Remove";
+            // 
+            // refreshToolStripMenuItem
+            // 
+            this.refreshToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Restart;
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.RefreshToolStripMenuItem_Click);
+            // 
+            // clearHostsToolStripMenuItem
+            // 
+            this.clearHostsToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Nuke;
+            this.clearHostsToolStripMenuItem.Name = "clearHostsToolStripMenuItem";
+            this.clearHostsToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.clearHostsToolStripMenuItem.Text = "Clear Hosts";
+            this.clearHostsToolStripMenuItem.Click += new System.EventHandler(this.ClearHostsToolStripMenuItem_Click_1);
+            // 
+            // backupHostToolStripMenuItem
+            // 
+            this.backupHostToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.customToolStripMenuItem1,
+            this.defaultToolStripMenuItem1});
+            this.backupHostToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Backup1;
+            this.backupHostToolStripMenuItem.Name = "backupHostToolStripMenuItem";
+            this.backupHostToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.backupHostToolStripMenuItem.Text = "Backup Host";
+            // 
+            // customToolStripMenuItem1
+            // 
+            this.customToolStripMenuItem1.Image = global::SimpleBlock.Properties.Resources.Folder;
+            this.customToolStripMenuItem1.Name = "customToolStripMenuItem1";
+            this.customToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
+            this.customToolStripMenuItem1.Text = "Custom";
+            this.customToolStripMenuItem1.Click += new System.EventHandler(this.CustomToolStripMenuItem1_Click);
+            // 
+            // defaultToolStripMenuItem1
+            // 
+            this.defaultToolStripMenuItem1.Image = global::SimpleBlock.Properties.Resources.File;
+            this.defaultToolStripMenuItem1.Name = "defaultToolStripMenuItem1";
+            this.defaultToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
+            this.defaultToolStripMenuItem1.Text = "Default";
+            this.defaultToolStripMenuItem1.Click += new System.EventHandler(this.DefaultToolStripMenuItem1_Click);
+            // 
+            // restoreFromCopyToolStripMenuItem
+            // 
+            this.restoreFromCopyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.customToolStripMenuItem,
+            this.defaultToolStripMenuItem});
+            this.restoreFromCopyToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Sync;
+            this.restoreFromCopyToolStripMenuItem.Name = "restoreFromCopyToolStripMenuItem";
+            this.restoreFromCopyToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.restoreFromCopyToolStripMenuItem.Text = "Restore From Copy";
+            // 
+            // customToolStripMenuItem
+            // 
+            this.customToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Folder;
+            this.customToolStripMenuItem.Name = "customToolStripMenuItem";
+            this.customToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.customToolStripMenuItem.Text = "Custom";
+            this.customToolStripMenuItem.Click += new System.EventHandler(this.CustomToolStripMenuItem_Click);
+            // 
+            // defaultToolStripMenuItem
+            // 
+            this.defaultToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.File;
+            this.defaultToolStripMenuItem.Name = "defaultToolStripMenuItem";
+            this.defaultToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.defaultToolStripMenuItem.Text = "Default";
+            this.defaultToolStripMenuItem.Click += new System.EventHandler(this.DefaultToolStripMenuItem_Click);
             // 
             // PauseResumeButton
             // 
@@ -298,6 +380,22 @@
             this.logStrip.Name = "contextMenuStrip1";
             this.logStrip.Size = new System.Drawing.Size(104, 48);
             // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Doc;
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
+            // 
+            // clearToolStripMenuItem
+            // 
+            this.clearToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Nuke;
+            this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.clearToolStripMenuItem.Text = "Clear";
+            this.clearToolStripMenuItem.Click += new System.EventHandler(this.ClearToolStripMenuItem_Click);
+            // 
             // checkUpdatesButton
             // 
             this.checkUpdatesButton.Location = new System.Drawing.Point(6, 46);
@@ -358,6 +456,108 @@
             this.repoOpsStrip.Name = "repoOpsStrip";
             this.repoOpsStrip.Size = new System.Drawing.Size(138, 136);
             // 
+            // addToolStripMenuItem1
+            // 
+            this.addToolStripMenuItem1.Image = global::SimpleBlock.Properties.Resources.Add;
+            this.addToolStripMenuItem1.Name = "addToolStripMenuItem1";
+            this.addToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
+            this.addToolStripMenuItem1.Text = "Add";
+            this.addToolStripMenuItem1.Click += new System.EventHandler(this.AddToolStripMenuItem1_Click);
+            // 
+            // removeToolStripMenuItem1
+            // 
+            this.removeToolStripMenuItem1.Image = global::SimpleBlock.Properties.Resources.Minus;
+            this.removeToolStripMenuItem1.Name = "removeToolStripMenuItem1";
+            this.removeToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
+            this.removeToolStripMenuItem1.Text = "Remove";
+            this.removeToolStripMenuItem1.Click += new System.EventHandler(this.RemoveToolStripMenuItem1_Click);
+            // 
+            // repoCheckToolStripMenuItem
+            // 
+            this.repoCheckToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.checkForUpdateToolStripMenuItem,
+            this.stopUpdateCheckToolStripMenuItem});
+            this.repoCheckToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.CheckList;
+            this.repoCheckToolStripMenuItem.Name = "repoCheckToolStripMenuItem";
+            this.repoCheckToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.repoCheckToolStripMenuItem.Text = "Repo Check";
+            // 
+            // checkForUpdateToolStripMenuItem
+            // 
+            this.checkForUpdateToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Done1;
+            this.checkForUpdateToolStripMenuItem.Name = "checkForUpdateToolStripMenuItem";
+            this.checkForUpdateToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.checkForUpdateToolStripMenuItem.Text = "Start";
+            this.checkForUpdateToolStripMenuItem.Click += new System.EventHandler(this.CheckForUpdateToolStripMenuItem_Click);
+            // 
+            // stopUpdateCheckToolStripMenuItem
+            // 
+            this.stopUpdateCheckToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Close1;
+            this.stopUpdateCheckToolStripMenuItem.Name = "stopUpdateCheckToolStripMenuItem";
+            this.stopUpdateCheckToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.stopUpdateCheckToolStripMenuItem.Text = "Stop";
+            this.stopUpdateCheckToolStripMenuItem.Click += new System.EventHandler(this.StopUpdateCheckToolStripMenuItem_Click);
+            // 
+            // updateToolStripMenuItem1
+            // 
+            this.updateToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.startToolStripMenuItem1,
+            this.stopToolStripMenuItem1});
+            this.updateToolStripMenuItem1.Image = global::SimpleBlock.Properties.Resources.Update2;
+            this.updateToolStripMenuItem1.Name = "updateToolStripMenuItem1";
+            this.updateToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
+            this.updateToolStripMenuItem1.Text = "Update";
+            // 
+            // startToolStripMenuItem1
+            // 
+            this.startToolStripMenuItem1.Image = global::SimpleBlock.Properties.Resources.Done;
+            this.startToolStripMenuItem1.Name = "startToolStripMenuItem1";
+            this.startToolStripMenuItem1.Size = new System.Drawing.Size(98, 22);
+            this.startToolStripMenuItem1.Text = "Start";
+            this.startToolStripMenuItem1.Click += new System.EventHandler(this.StartToolStripMenuItem1_Click);
+            // 
+            // stopToolStripMenuItem1
+            // 
+            this.stopToolStripMenuItem1.Image = global::SimpleBlock.Properties.Resources.Close;
+            this.stopToolStripMenuItem1.Name = "stopToolStripMenuItem1";
+            this.stopToolStripMenuItem1.Size = new System.Drawing.Size(98, 22);
+            this.stopToolStripMenuItem1.Text = "Stop";
+            this.stopToolStripMenuItem1.Click += new System.EventHandler(this.StopToolStripMenuItem1_Click);
+            // 
+            // updateToolStripMenuItem
+            // 
+            this.updateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.startToolStripMenuItem,
+            this.stopToolStripMenuItem});
+            this.updateToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Update2;
+            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.updateToolStripMenuItem.Text = "Update All";
+            // 
+            // startToolStripMenuItem
+            // 
+            this.startToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Done;
+            this.startToolStripMenuItem.Name = "startToolStripMenuItem";
+            this.startToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.startToolStripMenuItem.Text = "Start";
+            this.startToolStripMenuItem.Click += new System.EventHandler(this.StartToolStripMenuItem_Click);
+            // 
+            // stopToolStripMenuItem
+            // 
+            this.stopToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Close;
+            this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
+            this.stopToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.stopToolStripMenuItem.Text = "Stop";
+            this.stopToolStripMenuItem.Click += new System.EventHandler(this.StopToolStripMenuItem_Click);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Edit;
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.EditToolStripMenuItem_Click);
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.hostList);
@@ -404,6 +604,22 @@
             this.removeToolStripMenuItem2});
             this.allowedStrip.Name = "allowedStrip";
             this.allowedStrip.Size = new System.Drawing.Size(118, 48);
+            // 
+            // addToolStripMenuItem2
+            // 
+            this.addToolStripMenuItem2.Image = global::SimpleBlock.Properties.Resources.Add;
+            this.addToolStripMenuItem2.Name = "addToolStripMenuItem2";
+            this.addToolStripMenuItem2.Size = new System.Drawing.Size(117, 22);
+            this.addToolStripMenuItem2.Text = "Add";
+            this.addToolStripMenuItem2.Click += new System.EventHandler(this.AddToolStripMenuItem2_Click);
+            // 
+            // removeToolStripMenuItem2
+            // 
+            this.removeToolStripMenuItem2.Image = global::SimpleBlock.Properties.Resources.Minus;
+            this.removeToolStripMenuItem2.Name = "removeToolStripMenuItem2";
+            this.removeToolStripMenuItem2.Size = new System.Drawing.Size(117, 22);
+            this.removeToolStripMenuItem2.Text = "Remove";
+            this.removeToolStripMenuItem2.Click += new System.EventHandler(this.RemoveToolStripMenuItem2_Click);
             // 
             // tabPage5
             // 
@@ -541,7 +757,7 @@
             this.aboudLabel.Size = new System.Drawing.Size(372, 128);
             this.aboudLabel.TabIndex = 0;
             this.aboudLabel.Text = "License (I dunno)\r\nFeel free to modify this program\r\nMade quickly and simple in c" +
-    "ombat of Manifest V3 >:)\r\n\r\n~ Made With Love\r\n\r\nVersion: 1.0\r\n\r\n";
+    "ombat of Manifest V3 >:)\r\n\r\n~ Made With Love\r\n\r\nVersion: 1.1\r\n\r\n";
             // 
             // repoCheckTip
             // 
@@ -552,222 +768,6 @@
             // 
             this.deepRepoTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.deepRepoTip.ToolTipTitle = "Run Deep Update Check";
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Doc;
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.openToolStripMenuItem.Text = "Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
-            // 
-            // clearToolStripMenuItem
-            // 
-            this.clearToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Nuke;
-            this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.clearToolStripMenuItem.Text = "Clear";
-            this.clearToolStripMenuItem.Click += new System.EventHandler(this.ClearToolStripMenuItem_Click);
-            // 
-            // addToolStripMenuItem1
-            // 
-            this.addToolStripMenuItem1.Image = global::SimpleBlock.Properties.Resources.Add;
-            this.addToolStripMenuItem1.Name = "addToolStripMenuItem1";
-            this.addToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
-            this.addToolStripMenuItem1.Text = "Add";
-            this.addToolStripMenuItem1.Click += new System.EventHandler(this.AddToolStripMenuItem1_Click);
-            // 
-            // removeToolStripMenuItem1
-            // 
-            this.removeToolStripMenuItem1.Image = global::SimpleBlock.Properties.Resources.Minus;
-            this.removeToolStripMenuItem1.Name = "removeToolStripMenuItem1";
-            this.removeToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
-            this.removeToolStripMenuItem1.Text = "Remove";
-            this.removeToolStripMenuItem1.Click += new System.EventHandler(this.RemoveToolStripMenuItem1_Click);
-            // 
-            // repoCheckToolStripMenuItem
-            // 
-            this.repoCheckToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.checkForUpdateToolStripMenuItem,
-            this.stopUpdateCheckToolStripMenuItem});
-            this.repoCheckToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.CheckList;
-            this.repoCheckToolStripMenuItem.Name = "repoCheckToolStripMenuItem";
-            this.repoCheckToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.repoCheckToolStripMenuItem.Text = "Repo Check";
-            // 
-            // checkForUpdateToolStripMenuItem
-            // 
-            this.checkForUpdateToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Done1;
-            this.checkForUpdateToolStripMenuItem.Name = "checkForUpdateToolStripMenuItem";
-            this.checkForUpdateToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
-            this.checkForUpdateToolStripMenuItem.Text = "Start";
-            this.checkForUpdateToolStripMenuItem.Click += new System.EventHandler(this.CheckForUpdateToolStripMenuItem_Click);
-            // 
-            // stopUpdateCheckToolStripMenuItem
-            // 
-            this.stopUpdateCheckToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Close1;
-            this.stopUpdateCheckToolStripMenuItem.Name = "stopUpdateCheckToolStripMenuItem";
-            this.stopUpdateCheckToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
-            this.stopUpdateCheckToolStripMenuItem.Text = "Stop";
-            this.stopUpdateCheckToolStripMenuItem.Click += new System.EventHandler(this.StopUpdateCheckToolStripMenuItem_Click);
-            // 
-            // updateToolStripMenuItem1
-            // 
-            this.updateToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.startToolStripMenuItem1,
-            this.stopToolStripMenuItem1});
-            this.updateToolStripMenuItem1.Image = global::SimpleBlock.Properties.Resources.Update2;
-            this.updateToolStripMenuItem1.Name = "updateToolStripMenuItem1";
-            this.updateToolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
-            this.updateToolStripMenuItem1.Text = "Update";
-            // 
-            // startToolStripMenuItem1
-            // 
-            this.startToolStripMenuItem1.Image = global::SimpleBlock.Properties.Resources.Done;
-            this.startToolStripMenuItem1.Name = "startToolStripMenuItem1";
-            this.startToolStripMenuItem1.Size = new System.Drawing.Size(98, 22);
-            this.startToolStripMenuItem1.Text = "Start";
-            this.startToolStripMenuItem1.Click += new System.EventHandler(this.StartToolStripMenuItem1_Click);
-            // 
-            // stopToolStripMenuItem1
-            // 
-            this.stopToolStripMenuItem1.Image = global::SimpleBlock.Properties.Resources.Close;
-            this.stopToolStripMenuItem1.Name = "stopToolStripMenuItem1";
-            this.stopToolStripMenuItem1.Size = new System.Drawing.Size(98, 22);
-            this.stopToolStripMenuItem1.Text = "Stop";
-            this.stopToolStripMenuItem1.Click += new System.EventHandler(this.StopToolStripMenuItem1_Click);
-            // 
-            // updateToolStripMenuItem
-            // 
-            this.updateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.startToolStripMenuItem,
-            this.stopToolStripMenuItem});
-            this.updateToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Update2;
-            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.updateToolStripMenuItem.Text = "Update All";
-            // 
-            // startToolStripMenuItem
-            // 
-            this.startToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Done;
-            this.startToolStripMenuItem.Name = "startToolStripMenuItem";
-            this.startToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
-            this.startToolStripMenuItem.Text = "Start";
-            this.startToolStripMenuItem.Click += new System.EventHandler(this.StartToolStripMenuItem_Click);
-            // 
-            // stopToolStripMenuItem
-            // 
-            this.stopToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Close;
-            this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
-            this.stopToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
-            this.stopToolStripMenuItem.Text = "Stop";
-            this.stopToolStripMenuItem.Click += new System.EventHandler(this.StopToolStripMenuItem_Click);
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Edit;
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.editToolStripMenuItem.Text = "Edit";
-            this.editToolStripMenuItem.Click += new System.EventHandler(this.EditToolStripMenuItem_Click);
-            // 
-            // addToolStripMenuItem
-            // 
-            this.addToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Add;
-            this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.addToolStripMenuItem.Text = "Add";
-            // 
-            // removeToolStripMenuItem
-            // 
-            this.removeToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Minus;
-            this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.removeToolStripMenuItem.Text = "Remove";
-            // 
-            // refreshToolStripMenuItem
-            // 
-            this.refreshToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Restart;
-            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.refreshToolStripMenuItem.Text = "Refresh";
-            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.RefreshToolStripMenuItem_Click);
-            // 
-            // clearHostsToolStripMenuItem
-            // 
-            this.clearHostsToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Nuke;
-            this.clearHostsToolStripMenuItem.Name = "clearHostsToolStripMenuItem";
-            this.clearHostsToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.clearHostsToolStripMenuItem.Text = "Clear Hosts";
-            this.clearHostsToolStripMenuItem.Click += new System.EventHandler(this.ClearHostsToolStripMenuItem_Click_1);
-            // 
-            // backupHostToolStripMenuItem
-            // 
-            this.backupHostToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.customToolStripMenuItem1,
-            this.defaultToolStripMenuItem1});
-            this.backupHostToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Backup1;
-            this.backupHostToolStripMenuItem.Name = "backupHostToolStripMenuItem";
-            this.backupHostToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.backupHostToolStripMenuItem.Text = "Backup Host";
-            // 
-            // customToolStripMenuItem1
-            // 
-            this.customToolStripMenuItem1.Image = global::SimpleBlock.Properties.Resources.Folder;
-            this.customToolStripMenuItem1.Name = "customToolStripMenuItem1";
-            this.customToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
-            this.customToolStripMenuItem1.Text = "Custom";
-            this.customToolStripMenuItem1.Click += new System.EventHandler(this.CustomToolStripMenuItem1_Click);
-            // 
-            // defaultToolStripMenuItem1
-            // 
-            this.defaultToolStripMenuItem1.Image = global::SimpleBlock.Properties.Resources.File;
-            this.defaultToolStripMenuItem1.Name = "defaultToolStripMenuItem1";
-            this.defaultToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
-            this.defaultToolStripMenuItem1.Text = "Default";
-            this.defaultToolStripMenuItem1.Click += new System.EventHandler(this.DefaultToolStripMenuItem1_Click);
-            // 
-            // restoreFromCopyToolStripMenuItem
-            // 
-            this.restoreFromCopyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.customToolStripMenuItem,
-            this.defaultToolStripMenuItem});
-            this.restoreFromCopyToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Sync;
-            this.restoreFromCopyToolStripMenuItem.Name = "restoreFromCopyToolStripMenuItem";
-            this.restoreFromCopyToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.restoreFromCopyToolStripMenuItem.Text = "Restore From Copy";
-            // 
-            // customToolStripMenuItem
-            // 
-            this.customToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.Folder;
-            this.customToolStripMenuItem.Name = "customToolStripMenuItem";
-            this.customToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.customToolStripMenuItem.Text = "Custom";
-            this.customToolStripMenuItem.Click += new System.EventHandler(this.CustomToolStripMenuItem_Click);
-            // 
-            // defaultToolStripMenuItem
-            // 
-            this.defaultToolStripMenuItem.Image = global::SimpleBlock.Properties.Resources.File;
-            this.defaultToolStripMenuItem.Name = "defaultToolStripMenuItem";
-            this.defaultToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.defaultToolStripMenuItem.Text = "Default";
-            this.defaultToolStripMenuItem.Click += new System.EventHandler(this.DefaultToolStripMenuItem_Click);
-            // 
-            // addToolStripMenuItem2
-            // 
-            this.addToolStripMenuItem2.Image = global::SimpleBlock.Properties.Resources.Add;
-            this.addToolStripMenuItem2.Name = "addToolStripMenuItem2";
-            this.addToolStripMenuItem2.Size = new System.Drawing.Size(117, 22);
-            this.addToolStripMenuItem2.Text = "Add";
-            this.addToolStripMenuItem2.Click += new System.EventHandler(this.AddToolStripMenuItem2_Click);
-            // 
-            // removeToolStripMenuItem2
-            // 
-            this.removeToolStripMenuItem2.Image = global::SimpleBlock.Properties.Resources.Minus;
-            this.removeToolStripMenuItem2.Name = "removeToolStripMenuItem2";
-            this.removeToolStripMenuItem2.Size = new System.Drawing.Size(117, 22);
-            this.removeToolStripMenuItem2.Text = "Remove";
-            this.removeToolStripMenuItem2.Click += new System.EventHandler(this.RemoveToolStripMenuItem2_Click);
             // 
             // MainForm
             // 
