@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E6795921-0E74-4EA2-8046-4CA98488AED5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SimpleBlock</RootNamespace>
+    <AssemblyName>SimpleBlock</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>shield.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\Desktop\Json130r1\Bin\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AllowedHosts.cs" />
+    <Compile Include="AppSettings.cs" />
+    <Compile Include="Entry.cs" />
+    <Compile Include="GithubURL.cs" />
+    <Compile Include="HostFile.cs" />
+    <Compile Include="LoadFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadFrm.Designer.cs">
+      <DependentUpon>LoadFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Log.cs" />
+    <Compile Include="LogMsgForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogMsgForm.Designer.cs">
+      <DependentUpon>LogMsgForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParserUtils.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repo.cs" />
+    <Compile Include="RepoConfig.cs" />
+    <Compile Include="RepoCore.cs" />
+    <Compile Include="RepoModifyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RepoModifyForm.Designer.cs">
+      <DependentUpon>RepoModifyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SimpleIO.cs" />
+    <Compile Include="SpecialSorter.cs" />
+    <Compile Include="SpecialSorterEx.cs" />
+    <Compile Include="ThreadEx\CancelToken.cs" />
+    <Compile Include="ThreadEx\ThreadExExtensions.cs" />
+    <Compile Include="ThreadEx\ThreadWin32.cs" />
+    <Compile Include="ThreadEx\UnsafeThread.cs" />
+    <Compile Include="Utils.cs" />
+    <EmbeddedResource Include="LoadFrm.resx">
+      <DependentUpon>LoadFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogMsgForm.resx">
+      <DependentUpon>LogMsgForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RepoModifyForm.resx">
+      <DependentUpon>RepoModifyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-minus-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-remove-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-file-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-update-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-broom-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-rocket-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-stop-sign-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-start-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-restart-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-edit-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-data-backup-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-custom-58.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-file-481.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-startup-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Update2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CheckList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Done.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Restart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sync.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Backup1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nuke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Done1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Doc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\File.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phpfiVQS8PM.png" />
+    <Content Include="shield.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
