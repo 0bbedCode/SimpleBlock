@@ -7,9 +7,11 @@ Having that enabled with a Host file with over 100k+ Lines will Slow down your n
 If you wish to do this your self Modify  
 HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Dnscache -> Start -> 4 (Set the Start key value to 4 then restart your PC)  
 Note SOME applications may not Work Disabling Windows DNS Cache so if you can notify me the list I would be happy  
-Some applications can be fixed like Proton VPN (Change protocal from Smart to anything else) besides that I had no issues with Applications (Windows store may be one)  
-NOTE Windows Defender MAY block some things, so keep that in note maybe temp disable it I will have a fix if possible
-Might add exception to the program or modify some Reg Key
+Some applications can be fixed like Proton VPN (Change protocal from Smart to anything else) besides that I had no issues with Applications (Windows store may be one) 
+
+# Windows Defender Note
+**Windows Defender MAY block some things, so we will either provide an POSSIBLE update that can work with it or later it will have to be disabled, for now keep it disabled if it intercepts with the program , you will get a IOError and if the log says "Operation did not complete successfully because the file contains a virus or potentially unwanted software.
+", then thats defender preventing modifications to the host file. This just seems to be an issue with my Anti-Microsoft Repo as adding Microsoft Hosts to block them from spying on you seems to be something they would prevent**
 
 # Bugs
 
