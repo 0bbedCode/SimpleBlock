@@ -51,7 +51,7 @@ namespace SimpleBlock {
             else return GitURL.GetLastUpdateTime();
         }
 
-        public HashSet<string> GetEnteries(bool setCount = false) {
+        public HashSet<string> GetEnteries(bool setCount = false, bool setTime = false) {
             _hasUpdate = false;
             LogEx.LogRepoEvent("Parsing Enteries", $"Grabbing Enteries for >> {Name} >> {URI}");
             var data = ParserUtils.DownloadRepoText(URI);
@@ -60,10 +60,15 @@ namespace SimpleBlock {
                 Count = data.Length;
             }
 
+            if (setTime) {
+                LogEx.LogRepoEvent("Setting Time", $"Setting Last Update Time for the Repo >> {Name} >> {URI}");
+                LastUpdate = DateTime.Now;
+            }
+
             return RepoCore.Allowed.Filter(ParserUtils.ParseFromTextEx(data, true));
         }
 
-        public bool HasUpdate() {
+        public bool HasUpdatedTimeStamp() {
             if(!_hasUpdate && GetLastModifedDate() > LastUpdate) 
                 _hasUpdate = true;
 

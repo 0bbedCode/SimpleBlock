@@ -5,16 +5,22 @@
     <Setting Name="RunOnStartup" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="RunBackgroundUpdater" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
     <Setting Name="SleepCheck" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">60000</Value>
     </Setting>
-    <Setting Name="DeepUpdateCheck" Type="System.Boolean" Scope="User">
+    <Setting Name="Paused" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="Paused" Type="System.Boolean" Scope="User">
+    <Setting Name="Redirects" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="RepoCheckChar" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="RepoCheckTime" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="RepoCheckDeep" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>

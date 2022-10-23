@@ -44,10 +44,11 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.mainTabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.repoCheckTime = new System.Windows.Forms.CheckBox();
             this.updateBox = new System.Windows.Forms.ProgressBar();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.doRepoChecksCheck = new System.Windows.Forms.CheckBox();
-            this.deepRepoCheckCheck = new System.Windows.Forms.CheckBox();
+            this.repoCheckChar = new System.Windows.Forms.CheckBox();
+            this.repoCheckDeep = new System.Windows.Forms.CheckBox();
             this.logList = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -93,8 +94,9 @@
             this.DisableDNSButton = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.aboudLabel = new System.Windows.Forms.Label();
-            this.repoCheckTip = new System.Windows.Forms.ToolTip(this.components);
-            this.deepRepoTip = new System.Windows.Forms.ToolTip(this.components);
+            this.repoCharTip = new System.Windows.Forms.ToolTip(this.components);
+            this.repoDeepTip = new System.Windows.Forms.ToolTip(this.components);
+            this.repoTimeTip = new System.Windows.Forms.ToolTip(this.components);
             this.hostListsStrip.SuspendLayout();
             this.mainTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -280,10 +282,11 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.repoCheckTime);
             this.tabPage1.Controls.Add(this.updateBox);
             this.tabPage1.Controls.Add(this.checkBox3);
-            this.tabPage1.Controls.Add(this.doRepoChecksCheck);
-            this.tabPage1.Controls.Add(this.deepRepoCheckCheck);
+            this.tabPage1.Controls.Add(this.repoCheckChar);
+            this.tabPage1.Controls.Add(this.repoCheckDeep);
             this.tabPage1.Controls.Add(this.logList);
             this.tabPage1.Controls.Add(this.checkUpdatesButton);
             this.tabPage1.Controls.Add(this.PauseResumeButton);
@@ -294,6 +297,18 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Main";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // repoCheckTime
+            // 
+            this.repoCheckTime.AutoSize = true;
+            this.repoCheckTime.Location = new System.Drawing.Point(158, 37);
+            this.repoCheckTime.Name = "repoCheckTime";
+            this.repoCheckTime.Size = new System.Drawing.Size(142, 17);
+            this.repoCheckTime.TabIndex = 10;
+            this.repoCheckTime.Text = "Repo Check TimeStamp";
+            this.repoCheckTime.UseVisualStyleBackColor = true;
+            this.repoCheckTime.CheckedChanged += new System.EventHandler(this.RepoCheckTimeCheck_CheckedChanged);
+            this.repoCheckTime.MouseHover += new System.EventHandler(this.RepoCheckTime_MouseHover);
             // 
             // updateBox
             // 
@@ -308,36 +323,36 @@
             // 
             this.checkBox3.AutoSize = true;
             this.checkBox3.Enabled = false;
-            this.checkBox3.Location = new System.Drawing.Point(172, 60);
+            this.checkBox3.Location = new System.Drawing.Point(298, 14);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(95, 17);
             this.checkBox3.TabIndex = 8;
             this.checkBox3.Text = "Run at Startup";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
-            // doRepoChecksCheck
+            // repoCheckChar
             // 
-            this.doRepoChecksCheck.AutoSize = true;
-            this.doRepoChecksCheck.Location = new System.Drawing.Point(172, 14);
-            this.doRepoChecksCheck.Name = "doRepoChecksCheck";
-            this.doRepoChecksCheck.Size = new System.Drawing.Size(91, 17);
-            this.doRepoChecksCheck.TabIndex = 7;
-            this.doRepoChecksCheck.Text = "Repo Checks";
-            this.doRepoChecksCheck.UseVisualStyleBackColor = true;
-            this.doRepoChecksCheck.CheckedChanged += new System.EventHandler(this.DoRepoChecksCheck_CheckedChanged);
-            this.doRepoChecksCheck.MouseHover += new System.EventHandler(this.DoRepoChecksCheck_MouseHover);
+            this.repoCheckChar.AutoSize = true;
+            this.repoCheckChar.Location = new System.Drawing.Point(158, 14);
+            this.repoCheckChar.Name = "repoCheckChar";
+            this.repoCheckChar.Size = new System.Drawing.Size(111, 17);
+            this.repoCheckChar.TabIndex = 7;
+            this.repoCheckChar.Text = "Repo Check Char";
+            this.repoCheckChar.UseVisualStyleBackColor = true;
+            this.repoCheckChar.CheckedChanged += new System.EventHandler(this.RepoCheckCharCheck_CheckedChanged);
+            this.repoCheckChar.MouseHover += new System.EventHandler(this.RepoCharChecksCheck_MouseHover);
             // 
-            // deepRepoCheckCheck
+            // repoCheckDeep
             // 
-            this.deepRepoCheckCheck.AutoSize = true;
-            this.deepRepoCheckCheck.Location = new System.Drawing.Point(172, 37);
-            this.deepRepoCheckCheck.Name = "deepRepoCheckCheck";
-            this.deepRepoCheckCheck.Size = new System.Drawing.Size(115, 17);
-            this.deepRepoCheckCheck.TabIndex = 6;
-            this.deepRepoCheckCheck.Text = "Deep Repo Check";
-            this.deepRepoCheckCheck.UseVisualStyleBackColor = true;
-            this.deepRepoCheckCheck.CheckedChanged += new System.EventHandler(this.DeepRepoCheckCheck_CheckedChanged);
-            this.deepRepoCheckCheck.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DeepRepoCheckCheck_MouseMove);
+            this.repoCheckDeep.AutoSize = true;
+            this.repoCheckDeep.Location = new System.Drawing.Point(158, 60);
+            this.repoCheckDeep.Name = "repoCheckDeep";
+            this.repoCheckDeep.Size = new System.Drawing.Size(115, 17);
+            this.repoCheckDeep.TabIndex = 6;
+            this.repoCheckDeep.Text = "Deep Repo Check";
+            this.repoCheckDeep.UseVisualStyleBackColor = true;
+            this.repoCheckDeep.CheckedChanged += new System.EventHandler(this.RepoCheckDeepCheck_CheckedChanged);
+            this.repoCheckDeep.MouseHover += new System.EventHandler(this.RepoDeepChecksCheck_MouseHover);
             // 
             // logList
             // 
@@ -759,15 +774,20 @@
             this.aboudLabel.Text = "License (I dunno)\r\nFeel free to modify this program\r\nMade quickly and simple in c" +
     "ombat of Manifest V3 >:)\r\n\r\n~ Made With Love\r\n\r\nVersion: 1.1\r\n\r\n";
             // 
-            // repoCheckTip
+            // repoCharTip
             // 
-            this.repoCheckTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.repoCheckTip.ToolTipTitle = "Do Background Update";
+            this.repoCharTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.repoCharTip.ToolTipTitle = "Perform Char Update Check";
             // 
-            // deepRepoTip
+            // repoDeepTip
             // 
-            this.deepRepoTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.deepRepoTip.ToolTipTitle = "Run Deep Update Check";
+            this.repoDeepTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
+            this.repoDeepTip.ToolTipTitle = "Perform Deep Update Check";
+            // 
+            // repoTimeTip
+            // 
+            this.repoTimeTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.repoTimeTip.ToolTipTitle = "Perform Repo Time Check";
             // 
             // MainForm
             // 
@@ -839,8 +859,8 @@
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearToolStripMenuItem;
         private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox doRepoChecksCheck;
-        private System.Windows.Forms.CheckBox deepRepoCheckCheck;
+        private System.Windows.Forms.CheckBox repoCheckChar;
+        private System.Windows.Forms.CheckBox repoCheckDeep;
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
@@ -869,13 +889,15 @@
         private System.Windows.Forms.ToolStripMenuItem defaultToolStripMenuItem1;
         private System.Windows.Forms.Button Convert12720;
         private System.Windows.Forms.Label aboudLabel;
-        private System.Windows.Forms.ToolTip repoCheckTip;
-        private System.Windows.Forms.ToolTip deepRepoTip;
+        private System.Windows.Forms.ToolTip repoCharTip;
+        private System.Windows.Forms.ToolTip repoDeepTip;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.ListView allowedList;
         private System.Windows.Forms.ContextMenuStrip allowedStrip;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem2;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.CheckBox repoCheckTime;
+        private System.Windows.Forms.ToolTip repoTimeTip;
     }
 }

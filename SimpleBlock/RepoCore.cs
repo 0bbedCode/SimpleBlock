@@ -38,7 +38,7 @@ namespace SimpleBlock {
             return true;
         }
 
-        public static bool HasUpdate(bool deepCheck, HostFile host) {
+        public static bool HasUpdate(HostFile host, bool force = false) {
             try {
                 if (IsCheckingForUpdate) {
                     LogEx.LogCoreIsBusy($"IsCheckingForUpdate={IsCheckingForUpdate}");
@@ -47,7 +47,7 @@ namespace SimpleBlock {
 
                 IsCheckingForUpdate = true;
                 LogEx.LogRepoEvent("Checking For Updates", "Checking If Repo Core has An Update");
-                if (deepCheck)
+                if (AppSettings.RepoCheckDeep)
                     host.InitHost();
 
                 if (Repos.Count == 0 || HasNoEnabledRepos()) {
@@ -59,22 +59,32 @@ namespace SimpleBlock {
                     if (!repo.Enabled)
                         continue;
 
-                    if (repo.HasUpdate()) {
-                        LogEx.LogNeedsUpdate($"Repo >> {repo.ToStringEx()}");
-                        return true;
+                    if (AppSettings.RepoCheckChar || (!AppSettings.RunBackgroundUpdates && force)) {
+                        LogEx.LogRepoEvent("Char Repo Check", "Performing a Repo Check using Char Count Comparing");
+                        var data = ParserUtils.DownloadRepoText(repo.URI);//Fix Later to be more optmized
+                        if (data is null) {
+                            LogEx.LogIsNULL("HasUpdate.data", $"Repo >> {repo.ToStringEx()} >> Failed to DownloadRepoText <RepoCore.HasUpdate>");
+                            return false;
+                        }
+
+                        if (data.Length != repo.Count) {
+                            LogEx.LogNeedsUpdate($"Repo >> {repo.ToStringEx()}New Count: {data.Length}");
+                            return true;
+                        }
                     }
 
-                    //Fix Later to be more optmized
-                    var data = ParserUtils.DownloadRepoText(repo.URI);
-                    if(data.Length != repo.Count) {
-                        LogEx.LogNeedsUpdate($"Repo >> {repo.ToStringEx()}");
-                        return true;
+                    if (AppSettings.RepoCheckTime) {
+                        LogEx.LogRepoEvent("Time Repo Check", "Performing a Repo Check using TimeStamp Comparing");
+                        if (repo.HasUpdatedTimeStamp()) {
+                            LogEx.LogNeedsUpdate($"Repo >> {repo.ToStringEx()}");
+                            return true;
+                        }
                     }
 
-                    if (!deepCheck)
+                    if (!AppSettings.RepoCheckDeep)
                         continue;
 
-                    LogEx.LogRepoEvent("Deep Repo Check", "Starting a Deep Repo Check, Gathering Enteries with the URL Compare to Host File");
+                    LogEx.LogRepoEvent("Deep Repo Check", "Performing a Deep Repo Check, Gathering Enteries with the URL Compare to Host File");
 
                     var blcked = repo.GetEnteries();
                     if (blcked is null) {
@@ -112,8 +122,8 @@ namespace SimpleBlock {
             }
         }
 
-        public static List<Entry> GetAllEnteries() => GetAllEnteries(Repos);
-        public static List<Entry> GetAllEnteries(List<Repo> repos) {
+        public static List<Entry> GetAllEnteries(bool setCount = false, bool setTime = false) => GetAllEnteries(Repos);
+        public static List<Entry> GetAllEnteries(List<Repo> repos, bool setCount = false, bool setTime = false) {
             if (repos is null || repos.Count == 0) {
                 LogEx.LogIsNULL($"GetAllEnteries.Repos");
                 return null;
@@ -124,7 +134,7 @@ namespace SimpleBlock {
                 var hshItems = new HashSet<string>();
                 foreach (var repo in repos.ToArray()) {
                     if (repo.Enabled) {
-                        var entrs = repo.GetEnteries(true);
+                        var entrs = repo.GetEnteries(setCount, setTime);
                         LogEx.LogRepoEvent("Sorting Enteries", $"Repo >> {repo.ToStringEx()}Entery Count: {entrs.Count}");
                         foreach (var itm in entrs)
                             hshItems.Add(itm);

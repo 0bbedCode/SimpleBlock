@@ -22,13 +22,10 @@ namespace SimpleBlock {
 
         private bool _hasUpdate = false;
         private bool _hasInitRepoTab = false;
-        private bool _hasInitUi = false;
         private bool _writeRepoAfterUpdate = false;
 
         public MainForm(string hostFile) {
             InitializeComponent();
-            //Need to fix stupid fucking cross threading issues, if I this.BegindInvoke new error is the UI is not present, else cross threading error with UI 
-            //So I created _hasInitUi to MAYBE help but it does not so for now will fix it later
 
             RepoCore.OnNewRepo += OnNewRepoHandler;
             RepoCore.OnAddRepo += OnAddRepoHandler;
@@ -51,22 +48,26 @@ namespace SimpleBlock {
             InitBackgroundUpdaterEx();
         }
 
-        private void CheckForUpdates() {
+        private void CheckForUpdates(bool force = false) {
             if (RepoCore.IsCheckingForUpdate || _updatingThread != null || _host.IsUpdating) {
                 LogEx.LogCoreIsBusy($"IsCheckingForUpdate={RepoCore.IsCheckingForUpdate} >> ThreadIsNull={_updatingThread is null} >> IsUpdating={_host.IsUpdating}");
                 return;
             }
 
             updateBox.Style = ProgressBarStyle.Marquee;
-            _updateCheckThread = TokenCancel.StartAsyncEx(() => { _hasUpdate = RepoCore.HasUpdate(AppSettings.Get<bool>("DeepUpdateCheck"), _host); }, OnEndedProgressThreadHandler);
+            _updateCheckThread = TokenCancel.StartAsyncEx(() => { _hasUpdate = RepoCore.HasUpdate(_host, force); }, OnEndedProgressThreadHandler);
         }
 
         public void UpdateCoreIdle(bool enabled) {
             repoList.Enabled = enabled;
-            checkUpdatesButton.Enabled = enabled;
+            allowedList.Enabled = enabled;
             hostList.Enabled = enabled;
-            doRepoChecksCheck.Enabled = enabled;
-            deepRepoCheckCheck.Enabled = enabled;
+            
+            checkUpdatesButton.Enabled = enabled;
+            
+            repoCheckChar.Enabled = enabled;
+            repoCheckTime.Enabled = enabled;
+            repoCheckDeep.Enabled = enabled;
 
             TokenCancel.StartAsync(() => {
                 if (!Enabled) UpdateTotalBlockedHandler(0);
@@ -81,8 +82,6 @@ namespace SimpleBlock {
         public void InitAllowed() {
             foreach(var itm in _allowed.Allowed) {
                 var lvi = new ListViewItem { Text = itm };
-                //allowedList.Items.Add();
-
                 if (InvokeRequired) this.BeginInvoke(new Action(() => { allowedList.Items.Add(lvi); }));
                 else allowedList.Items.Add(lvi);
             }
@@ -98,22 +97,21 @@ namespace SimpleBlock {
 
         public void InitUISettings() {
             LogEx.LogData("Updating UI Settings", "Updating UI to Match Settings Config");
-            doRepoChecksCheck.Checked = AppSettings.Get<bool>("RunBackgroundUpdater");
-            deepRepoCheckCheck.Checked = AppSettings.Get<bool>("DeepUpdateCheck");
+            repoCheckChar.Checked = AppSettings.RepoCheckChar; //AppSettings.Get<bool>("RepoCheckChar");//RunBackgroundUpdater
+            repoCheckTime.Checked = AppSettings.RepoCheckTime;
+            repoCheckDeep.Checked = AppSettings.RepoCheckDeep; //AppSettings.Get<bool>("RepoCheckDeep");//DeepUpdateCheck
             PauseResumeButton.Text = AppSettings.IsPaused ? "Resume" : "Pause";
             UpdateCoreIdle(!AppSettings.IsPaused);
         }
 
         public void InitBackgroundUpdaterEx() {
-            if (AppSettings.Get<bool>("RunBackgroundUpdater")) {
-                deepRepoCheckCheck.Enabled = true;
+            if (AppSettings.RunBackgroundUpdates) {
                 if (_backGroundworker != null)
                     return;
 
                 _backGroundworker = TokenCancel.StartAsyncEx(BackgroundWorkerEx);
             }
             else {
-                deepRepoCheckCheck.Enabled = false;
                 if (_backGroundworker is null)
                     return;
 
@@ -125,12 +123,18 @@ namespace SimpleBlock {
 
         public void BackgroundWorkerEx() {
             LogEx.LogData("Background Worker Working", "Background Update Checker Working In the Background");
-            while (!AppSettings.Get<bool>("RunBackgroundUpdater")) {
-                Thread.Sleep(AppSettings.Get<int>("RunBackgroundUpdater"));
+            while (!AppSettings.RunBackgroundUpdates) {//RunBackgroundUpdater
+                Thread.Sleep(AppSettings.Get<int>("SleepCheck"));
                 if (_hasUpdate)
                     continue;
 
-                _hasUpdate = RepoCore.HasUpdate(AppSettings.Get<bool>("DeepUpdateCheck"), _host);
+                if (AppSettings.IsPaused)
+                    return;
+
+                if (_host.IsUpdating || RepoCore.IsCheckingForUpdate)
+                    continue;
+
+                _hasUpdate = RepoCore.HasUpdate(_host);
             }
         }
 
@@ -198,13 +202,6 @@ namespace SimpleBlock {
             lvi.Tag = log;
             if (InvokeRequired) this.BeginInvoke(new Action(() => { logList.Items.Add(lvi); }));
             else logList.Items.Add(lvi);
-            //if (!_hasInitUi) {
-            //    if(InvokeRequired) this.BeginInvoke(new Action(() => { logList.Items.Add(lvi); }));
-            //    else logList.Items.Add(lvi);
-            //}
-            //else {
-            //    logList.Invoke(new Action(() => { logList.Items.Add(lvi); }));
-            //}
         }
 
         public void OnAddRepoHandler(Repo repo) {
@@ -214,13 +211,6 @@ namespace SimpleBlock {
             lvi.Tag = repo;
             if (InvokeRequired) this.BeginInvoke(new Action(() => { repoList.Items.Add(lvi); }));
             else repoList.Items.Add(lvi);
-
-            //if (!_hasInitUi) {
-            //    repoList.Items.Add(lvi);
-            //}
-            //else {
-            //    repoList.Invoke(new Action(() => { repoList.Items.Add(lvi); }));
-            //}
         }
 
         public void OnNewRepoHandler(Repo repo) {
@@ -344,13 +334,23 @@ namespace SimpleBlock {
             }
         }
 
-        private void DoRepoChecksCheck_CheckedChanged(object sender, EventArgs e) {
-            AppSettings.Set("RunBackgroundUpdater", doRepoChecksCheck.Checked);
+        private void RepoCheckCharCheck_CheckedChanged(object sender, EventArgs e) {
+            AppSettings.RepoCheckChar = repoCheckChar.Checked;
             InitBackgroundUpdaterEx();
         }
 
-        private void DeepRepoCheckCheck_CheckedChanged(object sender, EventArgs e)
-            => AppSettings.Set("DeepUpdateCheck", doRepoChecksCheck.Checked);
+        private void RepoCheckTimeCheck_CheckedChanged(object sender, EventArgs e) {
+            AppSettings.RepoCheckTime = repoCheckTime.Checked;
+            InitBackgroundUpdaterEx();
+        }
+
+        private void RepoCheckDeepCheck_CheckedChanged(object sender, EventArgs e) {
+            var res = MessageBox.Show("This is a Beta Check, Use it if you dont mind alot of resources being used on your PC. Its a Non Needed Check. Do you still want this?", "Are you Sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if(res == DialogResult.Yes) {
+                AppSettings.RepoCheckDeep = repoCheckDeep.Checked;
+                InitBackgroundUpdaterEx();
+            }
+        }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e) {
             Program.Mutex.Close();
@@ -358,7 +358,7 @@ namespace SimpleBlock {
         }
 
         private void CheckUpdatesButton_Click(object sender, EventArgs e) 
-            => CheckForUpdates();
+            => CheckForUpdates(true);
 
         private void StartToolStripMenuItem_Click(object sender, EventArgs e) {
             if (_host.IsUpdating || _updatingThread != null) {//not equal to null check or ovveride it ?
@@ -385,8 +385,8 @@ namespace SimpleBlock {
                 _hasInitRepoTab = true;
         }
 
-        private void MainForm_Shown(object sender, EventArgs e) 
-            => _hasInitUi = true;
+        private void MainForm_Shown(object sender, EventArgs e) {
+        }
 
         private void PauseResumeButton_Click(object sender, EventArgs e) {//lock this ?
             if (_host.IsUpdating || RepoCore.IsCheckingForUpdate) {
@@ -420,7 +420,7 @@ namespace SimpleBlock {
             => Interaction.Shell("ipconfig /flushdns");
 
         private void CheckForUpdateToolStripMenuItem_Click(object sender, EventArgs e) 
-            => CheckForUpdates();
+            => CheckForUpdates(true);
 
         private void StopUpdateCheckToolStripMenuItem_Click(object sender, EventArgs e) {
             StopUpdateCheckAsync();
@@ -536,11 +536,15 @@ namespace SimpleBlock {
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
             => Process.Start("https://github.com/0bbedCode");
 
-        private void DoRepoChecksCheck_MouseHover(object sender, EventArgs e) 
-            => repoCheckTip.Show("If Check application Runs a Background Checker for any Repo Updates", doRepoChecksCheck);
+        private void RepoCharChecksCheck_MouseHover(object sender, EventArgs e) 
+            => repoCharTip.Show("Compares Char Length Cache with Char Length Downloaded", repoCheckChar);
 
-        private void DeepRepoCheckCheck_MouseMove(object sender, MouseEventArgs e)
-            => deepRepoTip.Show("If Check while running Background Checker it also Runs a Deep Check to make sure the Host File Lines up with the Repo Enteries", deepRepoCheckCheck);
+        private void RepoDeepChecksCheck_MouseHover(object sender, EventArgs e) 
+            => repoDeepTip.Show("Compares Downloaded Enteries with Host Enteries", repoCheckDeep);
+
+        private void RepoCheckTime_MouseHover(object sender, EventArgs e) 
+            => repoTimeTip.Show("Compares Last Update TimeStamps", repoCheckTime);
+
 
         private void ChechDNSCacheButton_Click(object sender, EventArgs e)
             => MessageBox.Show($"DNS Cache Is Enabled: {Utils.IsDNSCacheEnabled()}", "DNS Cache State", MessageBoxButtons.OK, MessageBoxIcon.Information);

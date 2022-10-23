@@ -37,18 +37,6 @@ namespace SimpleBlock.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool RunBackgroundUpdater {
-            get {
-                return ((bool)(this["RunBackgroundUpdater"]));
-            }
-            set {
-                this["RunBackgroundUpdater"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("60000")]
         public int SleepCheck {
             get {
@@ -62,24 +50,59 @@ namespace SimpleBlock.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool DeepUpdateCheck {
-            get {
-                return ((bool)(this["DeepUpdateCheck"]));
-            }
-            set {
-                this["DeepUpdateCheck"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool Paused {
             get {
                 return ((bool)(this["Paused"]));
             }
             set {
                 this["Paused"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection Redirects {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["Redirects"]));
+            }
+            set {
+                this["Redirects"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool RepoCheckChar {
+            get {
+                return ((bool)(this["RepoCheckChar"]));
+            }
+            set {
+                this["RepoCheckChar"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool RepoCheckTime {
+            get {
+                return ((bool)(this["RepoCheckTime"]));
+            }
+            set {
+                this["RepoCheckTime"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool RepoCheckDeep {
+            get {
+                return ((bool)(this["RepoCheckDeep"]));
+            }
+            set {
+                this["RepoCheckDeep"] = value;
             }
         }
     }

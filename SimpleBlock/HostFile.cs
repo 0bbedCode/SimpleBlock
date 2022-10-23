@@ -73,7 +73,7 @@ namespace SimpleBlock {
 
                 IsUpdating = true;
                 LogEx.LogHost("Pushing Host Update", $"Pushing Repos to the Host File >> {Path}");
-                var enters = RepoCore.GetAllEnteries(repos);
+                var enters = RepoCore.GetAllEnteries(repos, true, true);
                 if (enters is null) {
                     LogEx.LogError("Enteries is NULL");
                     return false;
@@ -126,8 +126,7 @@ namespace SimpleBlock {
                 if (RepoCore.HasNoEnabledRepos()) 
                     return true;
                 
-
-                var enteries = RepoCore.GetAllEnteries();
+                var enteries = RepoCore.GetAllEnteries(true, true);
                 if (enteries is null || enteries.Count == 0) {
                     LogEx.LogIsNULL("UpdateHostsEx.Enteries");
                     return false;
