@@ -43,6 +43,7 @@ Some applications can be fixed like Proton VPN (Change protocal from Smart to an
 * Add File Repo instead of URLs
 * Make the About me more Clean and UI cleaner
 * Make the Main Update Check the Char Count Comparer instead of Last Update Stamp
+* Make sure it fully stores the Non-Blocking / Redirected Hosts properly and applies it
 
 # How to Use
 
