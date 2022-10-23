@@ -53,6 +53,13 @@ I wanted to make this UI VERY Simple so stuck with default WinForms
 Simplewall from Henry++ & AdAway for Android was my Inspiration for making this tool for windows  
 Also with ManifestV3 AdBlockers on Chromium Based Browsers are Nerfed
 
-For any mispells or errors im sorry i am not the best with English I try 
+For any mispells or errors im sorry i am not the best with English I try   
+
+# Screenshots
+
+![Screenshot_66](https://user-images.githubusercontent.com/114315756/197370462-18c8eb2f-41b0-49fd-8509-24aea6620f8f.png)  
+
+
+![Screenshot_67](https://user-images.githubusercontent.com/114315756/197370469-a5cf32e2-1d27-441a-912c-794bb7294296.png)
 
 
