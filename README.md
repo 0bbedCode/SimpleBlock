@@ -16,7 +16,7 @@ Some applications can be fixed like Proton VPN (Change protocal from Smart to an
 # Bugs
 
 * ~~Cross Thread UI issue (when an non UI thread talks with UI elements on the UI thread) I had a fix but those have their own errors since the UI is not present~~  
-* Rare Program Lock (Program just does nothing til you terminate it) 
+* ~~Rare Program Lock (Program just does nothing til you terminate it) this will be crossed out til its produced again seems to be a false positive~~
 * ~~Help Popup does not go away just click the Text area til it disapears that happens sometimes you will know when it does~~
 * ~~False Update Reports (Something I cant 100% fix as some sites return the exact time stamp you opened it as the last update) I will migrate the update check to use my Char Count Method~~
 
@@ -44,6 +44,7 @@ Some applications can be fixed like Proton VPN (Change protocal from Smart to an
 * Make the About me more Clean and UI cleaner
 * ~~Make the Main Update Check the Char Count Comparer instead of Last Update Stamp~~
 * Make sure it fully stores the Non-Blocking / Redirected Hosts properly and applies it
+* Make Windows Defender Friendly
 
 # How to Use
 
@@ -66,7 +67,8 @@ For any mispells or errors im sorry i am not the best with English I try
 
 # Screenshots
 
-![Screenshot_66](https://user-images.githubusercontent.com/114315756/197370462-18c8eb2f-41b0-49fd-8509-24aea6620f8f.png)  
+![Screenshot_72](https://user-images.githubusercontent.com/114315756/197411631-49bdbf91-ab04-47ce-b80a-25d52f72ed05.png)
+  
 
 ![Screenshot_68](https://user-images.githubusercontent.com/114315756/197370503-99de3237-156b-4aa5-b2f2-0af29fcfee96.png)
 
