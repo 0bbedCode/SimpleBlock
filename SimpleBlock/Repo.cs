@@ -60,7 +60,7 @@ namespace SimpleBlock {
                 Count = data.Length;
             }
 
-            return RepoCore.Allowed.Filter(ParserUtils.ParseFromTextEx(data));
+            return RepoCore.Allowed.Filter(ParserUtils.ParseFromTextEx(data, true));
         }
 
         public bool HasUpdate() {

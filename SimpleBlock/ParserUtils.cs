@@ -74,7 +74,7 @@ namespace SimpleBlock {
             return null;
         }
 
-        public static HashSet<string> ParseFromTextEx(string data/*, string comment = null*/) {
+        public static HashSet<string> ParseFromTextEx(string data, bool cleanRedirect = false/*, string comment = null*/) {
             var lst = new HashSet<string>();
             if (!Utils.StringIsValid(data)) {
                 return lst;
@@ -96,10 +96,10 @@ namespace SimpleBlock {
                     var eitm = itm;
                     string entry = null;
                     if (itm.StartsWith("||")) {//adblock plus config
-                        entry = FindEntry(itm.Substring(2));
+                        entry = FindEntry(itm.Substring(2), cleanRedirect);
                     }
                     else {
-                        entry = FindEntry(itm);
+                        entry = FindEntry(itm, cleanRedirect);
                         if (entry is null)
                             entry = RegExMatch(itm);
                         //if (entry is null)
@@ -157,21 +157,21 @@ namespace SimpleBlock {
             return new Entry(enry);
         }
 
-        public static string FindEntry(string data) {
+        public static string FindEntry(string data, bool cleanRedirect = false) {
             if (!Utils.StringIsValid(data) || data.StartsWith(" ") || data.StartsWith("\t") || data.StartsWith("#"))
                 return null;
 
             var strb = new StringBuilder();
             var iscm = false;
             var wait = false;
-            for(var i = 0; i < data.Length; i++) {
+            for (var i = 0; i < data.Length; i++) {
                 if (data[i] == '\n' || data[i] == '\0')
                     break;
 
                 if (data[i] == '#') {
                     iscm = true;
                     strb.Append("§#");
-                    if (wait) 
+                    if (wait)
                         wait = false;
 
                     continue;
@@ -180,7 +180,7 @@ namespace SimpleBlock {
                 if (/*(data[i] == '#' && !iscm) ||*/ data[i] == '^' || data[i] == '|')
                     continue;
 
-                if(i > 2 && (data[i] == '\t' || char.IsWhiteSpace(data[i]) && !iscm)) {
+                if (i > 2 && (data[i] == '\t' || char.IsWhiteSpace(data[i]) && !iscm)) {
                     if (!wait)
                         wait = true;
 
@@ -196,12 +196,15 @@ namespace SimpleBlock {
             }
 
             var after = strb.ToString();
-            if (after.Contains("§")) {
-                var splt = after.Split('§');
-                if (Redirects.Contains(splt[0]))
-                    return splt[1];
-                else
-                    return splt[0];
+
+            if (cleanRedirect) {
+                if (after.Contains("§")) {
+                    var splt = after.Split('§');
+                    if (Redirects.Contains(splt[0]))
+                        return splt[1];
+                    else
+                        return splt[0];
+                }
             }
 
             return after;
