@@ -122,7 +122,7 @@ namespace SimpleBlock {
             }
         }
 
-        public static List<Entry> GetAllEnteries(bool setCount = false, bool setTime = false) => GetAllEnteries(Repos);
+        public static List<Entry> GetAllEnteries(bool setCount = false, bool setTime = false) => GetAllEnteries(Repos, setCount, setTime);
         public static List<Entry> GetAllEnteries(List<Repo> repos, bool setCount = false, bool setTime = false) {
             if (repos is null || repos.Count == 0) {
                 LogEx.LogIsNULL($"GetAllEnteries.Repos");
