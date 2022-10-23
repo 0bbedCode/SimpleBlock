@@ -67,7 +67,8 @@ For any mispells or errors im sorry i am not the best with English I try
 
 # Screenshots
 
-![Screenshot_66](https://user-images.githubusercontent.com/114315756/197370462-18c8eb2f-41b0-49fd-8509-24aea6620f8f.png)  
+![Screenshot_72](https://user-images.githubusercontent.com/114315756/197411631-49bdbf91-ab04-47ce-b80a-25d52f72ed05.png)
+  
 
 ![Screenshot_68](https://user-images.githubusercontent.com/114315756/197370503-99de3237-156b-4aa5-b2f2-0af29fcfee96.png)
 
