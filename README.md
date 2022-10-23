@@ -8,6 +8,8 @@ If you wish to do this your self Modify
 HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Dnscache -> Start -> 4 (Set the Start key value to 4 then restart your PC)  
 Note SOME applications may not Work Disabling Windows DNS Cache so if you can notify me the list I would be happy  
 Some applications can be fixed like Proton VPN (Change protocal from Smart to anything else) besides that I had no issues with Applications (Windows store may be one)  
+NOTE Windows Defender MAY block some things, so keep that in note maybe temp disable it I will have a fix if possible
+Might add exception to the program or modify some Reg Key
 
 # Bugs
 
