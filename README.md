@@ -14,6 +14,7 @@ Some applications can be fixed like Proton VPN (Change protocal from Smart to an
 * Cross Thread UI issue (when an non UI thread talks with UI elements on the UI thread) I had a fix but those have their own errors since the UI is not present  
 * Rare Program Lock (Program just does nothing til you terminate it) 
 * Help Popup does not go away just click the Text area til it disapears that happens sometimes you will know when it does
+* False Update Reports (Something I cant 100% fix as some sites return the exact time stamp you opened it as the last update)
 
 # Features
 
@@ -37,6 +38,7 @@ Some applications can be fixed like Proton VPN (Change protocal from Smart to an
 * Add 32 Bit View of Host (If needed)
 * Add File Repo instead of URLs
 * Make the About me more Clean and UI cleaner
+* Make the Main Update Check the Char Count Comparer instead of Last Update Stamp
 
 # How to Use
 
@@ -45,7 +47,9 @@ Go into the Repo Tab and Add a new Direct Link to a Repo List of Hosts to Block 
 If you are too lazy to google them here are a few : https://github.com/0bbedCode/AntiHell  
 The in the Repo Tab Select Update All or select a single repo and select Update "Start"  
 
+
 Note I use Context Menu Strips so Right Clicking on the ListView will bring up the "buttons/options"
+Also some Repos may be added by default (you welcome) you can remove them if you wish
 
 # Inspiration
 
