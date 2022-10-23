@@ -59,7 +59,5 @@ For any mispells or errors im sorry i am not the best with English I try
 
 ![Screenshot_66](https://user-images.githubusercontent.com/114315756/197370462-18c8eb2f-41b0-49fd-8509-24aea6620f8f.png)  
 
-
-![Screenshot_67](https://user-images.githubusercontent.com/114315756/197370469-a5cf32e2-1d27-441a-912c-794bb7294296.png)
-
+![Screenshot_68](https://user-images.githubusercontent.com/114315756/197370503-99de3237-156b-4aa5-b2f2-0af29fcfee96.png)
 
