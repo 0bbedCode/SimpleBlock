@@ -769,10 +769,10 @@
             this.aboudLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aboudLabel.Location = new System.Drawing.Point(3, 15);
             this.aboudLabel.Name = "aboudLabel";
-            this.aboudLabel.Size = new System.Drawing.Size(372, 128);
+            this.aboudLabel.Size = new System.Drawing.Size(372, 144);
             this.aboudLabel.TabIndex = 0;
             this.aboudLabel.Text = "License (I dunno)\r\nFeel free to modify this program\r\nMade quickly and simple in c" +
-    "ombat of Manifest V3 >:)\r\n\r\n~ Made With Love\r\n\r\nVersion: 1.1\r\n\r\n";
+    "ombat of Manifest V3 >:)\r\n\r\n~ Made With Love\r\n\r\nVersion: 2.0\r\n\r\n\r\n";
             // 
             // repoCharTip
             // 
