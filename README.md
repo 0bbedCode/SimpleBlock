@@ -49,8 +49,8 @@ Some applications can be fixed like Proton VPN (Change protocal from Smart to an
 
 Run the program as admin (Only programs with Admin Rights can modify the Host File)  
 Go into the Repo Tab and Add a new Direct Link to a Repo List of Hosts to Block (a long text file/ list of Hosts to block)  
-If you are too lazy to google them here are a few : https://github.com/0bbedCode/AntiHell  
-The in the Repo Tab Select Update All or select a single repo and select Update "Start"  
+If you are too lazy to google them here are a few : https://github.com/0bbedCode/AntiHell (Make sure to go to one of the repos then select the list)
+In the Repo Tab Select Update All or select a single repo and select Update "Start"  
 
 
 Note I use Context Menu Strips so Right Clicking on the ListView will bring up the "buttons/options"
