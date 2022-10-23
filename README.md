@@ -17,8 +17,8 @@ Some applications can be fixed like Proton VPN (Change protocal from Smart to an
 
 * ~~Cross Thread UI issue (when an non UI thread talks with UI elements on the UI thread) I had a fix but those have their own errors since the UI is not present~~  
 * Rare Program Lock (Program just does nothing til you terminate it) 
-* Help Popup does not go away just click the Text area til it disapears that happens sometimes you will know when it does
-* False Update Reports (Something I cant 100% fix as some sites return the exact time stamp you opened it as the last update) I will migrate the update check to use my Char Count Method
+* ~~Help Popup does not go away just click the Text area til it disapears that happens sometimes you will know when it does~~
+* ~~False Update Reports (Something I cant 100% fix as some sites return the exact time stamp you opened it as the last update) I will migrate the update check to use my Char Count Method~~
 
 # Features
 
@@ -42,7 +42,7 @@ Some applications can be fixed like Proton VPN (Change protocal from Smart to an
 * ~~Add 32 Bit View of Host (If needed)(Not needed)~~
 * Add File Repo instead of ONLY URL Repos
 * Make the About me more Clean and UI cleaner
-* Make the Main Update Check the Char Count Comparer instead of Last Update Stamp
+* ~~Make the Main Update Check the Char Count Comparer instead of Last Update Stamp~~
 * Make sure it fully stores the Non-Blocking / Redirected Hosts properly and applies it
 
 # How to Use
