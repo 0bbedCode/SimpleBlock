@@ -80,7 +80,11 @@ namespace SimpleBlock {
         #region Init Functions
         public void InitAllowed() {
             foreach(var itm in _allowed.Allowed) {
-                allowedList.Items.Add(new ListViewItem { Text = itm });
+                var lvi = new ListViewItem { Text = itm };
+                //allowedList.Items.Add();
+
+                if (InvokeRequired) this.BeginInvoke(new Action(() => { allowedList.Items.Add(lvi); }));
+                else allowedList.Items.Add(lvi);
             }
         }
 
@@ -192,13 +196,15 @@ namespace SimpleBlock {
             lvi.SubItems.Add(log.ShortMessage);
             lvi.SubItems.Add(log.TimeStamp.ToString());
             lvi.Tag = log;
-            if (!_hasInitUi) {
-                logList.Items.Add(lvi);
-                //this.BeginInvoke(new Action(() => { logList.Items.Add(lvi); }));
-            }
-            else {
-                logList.Invoke(new Action(() => { logList.Items.Add(lvi); }));
-            }
+            if (InvokeRequired) this.BeginInvoke(new Action(() => { logList.Items.Add(lvi); }));
+            else logList.Items.Add(lvi);
+            //if (!_hasInitUi) {
+            //    if(InvokeRequired) this.BeginInvoke(new Action(() => { logList.Items.Add(lvi); }));
+            //    else logList.Items.Add(lvi);
+            //}
+            //else {
+            //    logList.Invoke(new Action(() => { logList.Items.Add(lvi); }));
+            //}
         }
 
         public void OnAddRepoHandler(Repo repo) {
@@ -206,12 +212,15 @@ namespace SimpleBlock {
             lvi.SubItems.Add(repo.URI);
             lvi.Checked = repo.Enabled;
             lvi.Tag = repo;
-            if (!_hasInitUi) {
-                repoList.Items.Add(lvi);
-            }
-            else {
-                repoList.Invoke(new Action(() => { repoList.Items.Add(lvi); }));
-            }
+            if (InvokeRequired) this.BeginInvoke(new Action(() => { repoList.Items.Add(lvi); }));
+            else repoList.Items.Add(lvi);
+
+            //if (!_hasInitUi) {
+            //    repoList.Items.Add(lvi);
+            //}
+            //else {
+            //    repoList.Invoke(new Action(() => { repoList.Items.Add(lvi); }));
+            //}
         }
 
         public void OnNewRepoHandler(Repo repo) {
@@ -277,7 +286,8 @@ namespace SimpleBlock {
             => UpdateListView();
 
         public void UpdateTotalBlockedHandler(int blocked) {
-            this.BeginInvoke(new Action(() => { totalBlocked.Text = blocked.ToString(); }));
+            if (InvokeRequired) this.BeginInvoke(new Action(() => { totalBlocked.Text = blocked.ToString(); }));
+            else totalBlocked.Text = blocked.ToString();
             //if (!_hasInitUi) {
             //    //totalBlocked.Invoke(new Action(() => { totalBlocked.Text = blocked.ToString(); }));
             //    //totalBlocked.Text = blocked.ToString();
