@@ -40,7 +40,7 @@ Some applications can be fixed like Proton VPN (Change protocal from Smart to an
 * Add Startup Feature
 * Add more Performace Code
 * Add 32 Bit View of Host (If needed)
-* Add File Repo instead of URLs
+* Add File Repo instead of ONLY URL Repos
 * Make the About me more Clean and UI cleaner
 * Make the Main Update Check the Char Count Comparer instead of Last Update Stamp
 * Make sure it fully stores the Non-Blocking / Redirected Hosts properly and applies it
